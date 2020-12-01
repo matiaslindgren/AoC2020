@@ -8,6 +8,7 @@ import (
 func search(input []int) (int, int) {
 	var a = -1
 	var b = -1
+loop:
 	for i, x1 := range input {
 		for j, x2 := range input[i+1:] {
 			if (x1 + x2 == 2020) {
@@ -18,7 +19,7 @@ func search(input []int) (int, int) {
 					b = x1 * x2 * x3
 				}
 				if (a != -1 && b != -1) {
-					return a, b
+					break loop
 				}
 			}
 		}
