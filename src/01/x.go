@@ -28,6 +28,6 @@ loop:
 
 func main() {
 	input := aocutil.ParseIntArray()
-	a, b := search(input[:])
+	a, b := search(input)
 	fmt.Println(a, b)
 }

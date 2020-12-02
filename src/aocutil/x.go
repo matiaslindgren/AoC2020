@@ -30,8 +30,8 @@ func ParseIntPair(s string) (int, int) {
 func ParseIntArray() ([]int) {
 	lines := slurpStdinLines()
 	v := make([]int, len(lines))
-	for i := range v {
-		v[i] = parseInt(lines[i])
+	for i, line := range lines {
+		v[i] = parseInt(line)
 	}
 	return v
 }
@@ -39,8 +39,8 @@ func ParseIntArray() ([]int) {
 func ParseStringsTable() ([][]string) {
 	lines := slurpStdinLines()
 	v := make([][]string, len(lines))
-	for i := range v {
-		v[i] = strings.Split(lines[i], " ")
+	for i, line := range lines {
+		v[i] = strings.Split(line, " ")
 	}
 	return v
 }
