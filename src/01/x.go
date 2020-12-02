@@ -6,8 +6,7 @@ import (
 )
 
 func search(input []int) (int, int) {
-	var a = -1
-	var b = -1
+	var a, b = -1, -1
 loop:
 	for i, x1 := range input {
 		for j, x2 := range input[i+1:] {
@@ -28,7 +27,7 @@ loop:
 }
 
 func main() {
-	input := aocutil.ParseStdinLines()
+	input := aocutil.ParseIntArray()
 	a, b := search(input[:])
 	fmt.Println(a, b)
 }

@@ -1,4 +1,4 @@
-DAYS := $(shell find src -type d -regex '.*/[0-2][0-9]$$')
+DAYS := $(shell find -s src -type d -regex '.*/[0-2][0-9]$$')
 GOPATH := ${GOPATH}:$(shell pwd)
 
 .PHONY: build clean run
