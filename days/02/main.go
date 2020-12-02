@@ -11,8 +11,8 @@ func search(input [][]string) (int, int) {
 		i, j := util.ParseIntPair(s[0])
 		reqChar := s[1][0]
 		numReq := 0
-		for i := range s[2] {
-			if s[2][i] == reqChar {
+		for k := range s[2] {
+			if s[2][k] == reqChar {
 				numReq++
 			}
 		}
