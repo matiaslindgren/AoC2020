@@ -1,14 +1,14 @@
 package main
 
 import (
-	"aocutil"
+	"github.com/matiaslindgren/aoc2020/util"
 	"fmt"
 )
 
 func search(input [][]string) (int, int) {
 	a, b := 0, 0
 	for _, s := range input {
-		i, j := aocutil.ParseIntPair(s[0])
+		i, j := util.ParseIntPair(s[0])
 		reqChar := s[1][0]
 		numReq := 0
 		for i := range s[2] {
@@ -27,7 +27,7 @@ func search(input [][]string) (int, int) {
 }
 
 func main() {
-	input := aocutil.ParseStringsTable()
+	input := util.ParseStringsTable()
 	a, b := search(input)
 	fmt.Println(a, b)
 }

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aocutil"
+	"github.com/matiaslindgren/aoc2020/util"
 	"fmt"
 )
 
@@ -27,7 +27,7 @@ loop:
 }
 
 func main() {
-	input := aocutil.ParseIntArray()
+	input := util.ParseIntArray()
 	a, b := search(input)
 	fmt.Println(a, b)
 }

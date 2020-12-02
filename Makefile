@@ -1,22 +1,22 @@
-DAYS := $(shell find -s src -type d -regex '.*/[0-2][0-9]$$')
-GOPATH := ${GOPATH}:$(shell pwd)
-
-.PHONY: build clean run
+.PHONY: build run clean
 
 all: build run
 
 build:
 	@mkdir -pv bin
-	@env GOPATH=$(GOPATH) go build -o bin $(DAYS:src/%=%)
-
-clean:
-	@rm -rvf bin
+	@go build -o bin $$(go list ./...)
 
 run:
 	@echo running all
-	@for day in $(DAYS:src/%=%); do \
+	@for day in $$(ls bin); do \
 		echo; \
-		echo $$day; \
-		echo i: $$(wc -l input/$${day}.txt); \
-		echo o: $$(cat input/$${day}.txt | ./bin/$$day); \
+		input=input/$${day}.txt; \
+		exe=./bin/$$day; \
+		echo $$exe; \
+		[ ! -f "$$input" -o ! -f "$$exe" ] && exit 1; \
+		echo i: $$(wc -l $$input); \
+		echo o: $$(cat $$input | $$exe); \
 	done
+
+clean:
+	@rm -rvf bin
