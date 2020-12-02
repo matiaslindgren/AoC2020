@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-func ab(input []int) (int, int) {
-	var a, b = -1, -1
+func search(input []int) (int, int) {
+	a, b := -1, -1
 loop:
 	for i, x1 := range input {
 		for j, x2 := range input[i+1:] {
@@ -28,6 +28,6 @@ loop:
 
 func main() {
 	input := aocutil.ParseIntArray()
-	a, b := ab(input[:])
+	a, b := search(input[:])
 	fmt.Println(a, b)
 }

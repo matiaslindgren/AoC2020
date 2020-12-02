@@ -5,10 +5,10 @@ import (
 	"fmt"
 )
 
-func a(input [][]string) (int) {
-	numValid := 0
+func search(input [][]string) (int, int) {
+	a, b := 0, 0
 	for _, s := range input {
-		min, max := aocutil.ParseIntPair(s[0])
+		i, j := aocutil.ParseIntPair(s[0])
 		reqChar := s[1][0]
 		numReq := 0
 		for i := range s[2] {
@@ -16,28 +16,18 @@ func a(input [][]string) (int) {
 				numReq++
 			}
 		}
-		if (min <= numReq && numReq <= max) {
-			numValid++
+		if (i <= numReq && numReq <= j) {
+			a++
 		}
-	}
-	return numValid
-}
-
-func b(input [][]string) (int) {
-	numValid := 0
-	for _, s := range input {
-		i, j := aocutil.ParseIntPair(s[0])
-		reqChar := s[1][0]
 		if ((s[2][i-1] == reqChar) != (s[2][j-1] == reqChar)) {
-			numValid++
+			b++
 		}
 	}
-	return numValid
+	return a, b
 }
 
 func main() {
 	input := aocutil.ParseStringsTable()
-
-	fmt.Println(a(input))
-	fmt.Println(b(input))
+	a, b := search(input)
+	fmt.Println(a, b)
 }
