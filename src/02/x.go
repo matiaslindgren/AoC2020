@@ -16,10 +16,10 @@ func search(input [][]string) (int, int) {
 				numReq++
 			}
 		}
-		if (i <= numReq && numReq <= j) {
+		if i <= numReq && numReq <= j {
 			a++
 		}
-		if ((s[2][i-1] == reqChar) != (s[2][j-1] == reqChar)) {
+		if (s[2][i-1] == reqChar) != (s[2][j-1] == reqChar) {
 			b++
 		}
 	}
