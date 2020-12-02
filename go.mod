@@ -1,3 +1,3 @@
-module github.com/matiaslindgren/aoc2020
+module github.com/matiaslindgren/AoC2020
 
 go 1.15

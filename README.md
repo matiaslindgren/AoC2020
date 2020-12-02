@@ -3,8 +3,8 @@
 ```
 mkdir input
 # ...
-# Download input to ./input
+# Download/copy input to ./input/01.txt, ./input/02.txt, ..., ./input/25.txt
 # ...
-make build
+make
 sh run.sh
 ```

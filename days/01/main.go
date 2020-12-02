@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/matiaslindgren/aoc2020/util"
+	"github.com/matiaslindgren/AoC2020/util"
 	"fmt"
 )
 
