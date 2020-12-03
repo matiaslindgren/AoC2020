@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func slurpStdinLines() ([]string) {
+func SlurpStdinLines() ([]string) {
 	if f, err := ioutil.ReadFile("/dev/stdin"); err != nil {
 		panic(err)
 	} else {
@@ -28,7 +28,7 @@ func ParseIntPair(s string) (int, int) {
 }
 
 func ParseIntArray() ([]int) {
-	lines := slurpStdinLines()
+	lines := SlurpStdinLines()
 	v := make([]int, len(lines))
 	for i, line := range lines {
 		v[i] = parseInt(line)
@@ -37,7 +37,7 @@ func ParseIntArray() ([]int) {
 }
 
 func ParseStringsTable() ([][]string) {
-	lines := slurpStdinLines()
+	lines := SlurpStdinLines()
 	v := make([][]string, len(lines))
 	for i, line := range lines {
 		v[i] = strings.Split(line, " ")
