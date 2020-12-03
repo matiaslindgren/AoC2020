@@ -12,7 +12,7 @@ function assert_is_file {
 
 function run_day {
 	local day=$1
-	local input=input/${day}.txt
+	local input=txt/input/${day}.txt
 	local exe=./bin/$day
 
 	printf "\n%s\n" $exe
@@ -20,7 +20,18 @@ function run_day {
 	assert_is_file $exe
 
 	printf "input:  %d lines from %s\n" $(wc -l $input)
-	printf "output: %s\n" "$(cat $input | $exe)"
+	local output="$(cat $input | $exe)"
+	printf "output: %s\n" "$output"
+
+	local expect=txt/expect/${day}.txt
+	if [ -f "$expect" ]; then
+		local e="$(cat $expect)"
+		printf "expect: %s\n" "$e"
+		if [ "$output" != "$e" ]; then
+			printf "%s != %s\n" "$output" "$e"
+			exit 1
+		fi
+	fi
 }
 
 
