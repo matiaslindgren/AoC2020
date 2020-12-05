@@ -8,14 +8,9 @@ import (
 func search(input [][]string) (int, int) {
 	a, b := 0, 0
 	for _, s := range input {
-		i, j := util.ParseIntPair(s[0])
-		reqChar := s[1][0]
-		numReq := 0
-		for k := range s[2] {
-			if s[2][k] == reqChar {
-				numReq++
-			}
-		}
+		pair, reqChar, line := s[0], s[1][0], s[2]
+		i, j := util.ParseIntPair(pair)
+		numReq := util.CountChars(line, reqChar)
 		if i <= numReq && numReq <= j {
 			a++
 		}

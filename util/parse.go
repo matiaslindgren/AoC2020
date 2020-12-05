@@ -6,15 +6,23 @@ import (
 	"strings"
 )
 
-func SlurpStdinLines() ([]string) {
+func SlurpStdin() (string) {
 	if f, err := ioutil.ReadFile("/dev/stdin"); err != nil {
 		panic(err)
 	} else {
-		return strings.Split(strings.TrimSpace(string(f)), "\n")
+		return string(f)
 	}
 }
 
-func parseInt(s string) (int) {
+func SlurpStdinLines() ([]string) {
+	return strings.Split(strings.TrimSpace(SlurpStdin()), "\n")
+}
+
+func SlurpStdinSections() ([]string) {
+	return strings.Split(strings.TrimSpace(SlurpStdin()), "\n\n")
+}
+
+func ParseInt(s string) (int) {
 	if x, err := strconv.ParseInt(s, 10, 64); err != nil {
 		panic(err)
 	} else {
@@ -24,14 +32,14 @@ func parseInt(s string) (int) {
 
 func ParseIntPair(s string) (int, int) {
 	pair := strings.Split(s, "-")
-	return parseInt(pair[0]), parseInt(pair[1])
+	return ParseInt(pair[0]), ParseInt(pair[1])
 }
 
 func ParseIntArray() ([]int) {
 	lines := SlurpStdinLines()
 	v := make([]int, len(lines))
 	for i, line := range lines {
-		v[i] = parseInt(line)
+		v[i] = ParseInt(line)
 	}
 	return v
 }
