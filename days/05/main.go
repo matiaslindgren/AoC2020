@@ -6,27 +6,25 @@ import (
 )
 
 func search(lines []string) (int, int) {
-	ids := map[int]bool{}
+	idExists := map[int]bool{}
 	for _, line := range lines {
 		id := util.DecodeBitChars(line, "BR")
-		ids[id] = true
+		idExists[id] = true
 	}
 
 	minId, maxId := 1<<63-1, 0
-	for id, exists := range ids {
-		if exists {
-			if id < minId {
-				minId = id
-			}
-			if id > maxId {
-				maxId = id
-			}
+	for id := range idExists {
+		if id < minId {
+			minId = id
+		}
+		if id > maxId {
+			maxId = id
 		}
 	}
 
 	a, b := maxId, 0
 	for id := minId; id <= maxId; id++ {
-		if _, exists := ids[id]; !exists {
+		if !idExists[id] {
 			b = id
 		}
 	}
