@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/matiaslindgren/AoC2020/util"
 	"fmt"
+	"strings"
 )
 
 func search(input [][]string) (int, int) {
@@ -10,7 +11,7 @@ func search(input [][]string) (int, int) {
 	for _, s := range input {
 		pair, reqChar, line := s[0], s[1][0], s[2]
 		i, j := util.ParseIntPair(pair)
-		numReq := util.CountChars(line, reqChar)
+		numReq := strings.Count(line, string(reqChar))
 		if i <= numReq && numReq <= j {
 			a++
 		}

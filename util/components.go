@@ -5,17 +5,6 @@ import (
 	"strings"
 )
 
-// day 02
-func CountChars(line string, c byte) (int) {
-	n := 0
-	for i := range line {
-		if line[i] == c {
-			n++
-		}
-	}
-	return n
-}
-
 // day 03
 func Intersect(lines []string, dx, dy int, o byte) (int) {
 	n := 0
