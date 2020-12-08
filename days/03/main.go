@@ -6,7 +6,14 @@ import (
 )
 
 func countTrees(lines []string, dx, dy int) (int) {
-	return util.Intersect(lines, dx, dy, '#')
+	n := 0
+	xMax, yMax := len(lines[0]), len(lines)
+	for x, y := 0, 0; y < yMax; x, y = (x+dx)%xMax, y+dy {
+		if lines[y][x] == '#' {
+			n++
+		}
+	}
+	return n
 }
 
 func search(lines []string) (int, int) {

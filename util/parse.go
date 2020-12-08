@@ -2,6 +2,7 @@ package util
 
 import (
 	"io/ioutil"
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -51,4 +52,12 @@ func ParseStringsTable() ([][]string) {
 		v[i] = strings.Split(line, " ")
 	}
 	return v
+}
+
+func Match(pattern, text string) (bool) {
+	if matched, err := regexp.Match(pattern, []byte(text)); err != nil {
+		panic(err)
+	} else {
+		return matched
+	}
 }

@@ -3,12 +3,23 @@ package main
 import (
 	"github.com/matiaslindgren/AoC2020/util"
 	"fmt"
+	"strings"
 )
+
+func decodeBitChars(from, on string) (int) {
+	x, n := 0, len(from)
+	for i, ch := range from {
+		if strings.ContainsAny(string(ch), on) {
+			x += 1 << (n-i-1)
+		}
+	}
+	return x
+}
 
 func search(lines []string) (int, int) {
 	idExists := map[int]bool{}
 	for _, line := range lines {
-		id := util.DecodeBitChars(line, "BR")
+		id := decodeBitChars(line, "BR")
 		idExists[id] = true
 	}
 
