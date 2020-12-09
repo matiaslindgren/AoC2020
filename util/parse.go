@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func SlurpStdin() (string) {
+func SlurpStdin() string {
 	if f, err := ioutil.ReadFile("/dev/stdin"); err != nil {
 		panic(err)
 	} else {
@@ -15,15 +15,15 @@ func SlurpStdin() (string) {
 	}
 }
 
-func SlurpStdinLines() ([]string) {
+func SlurpStdinLines() []string {
 	return strings.Split(strings.TrimSpace(SlurpStdin()), "\n")
 }
 
-func SlurpStdinSections() ([]string) {
+func SlurpStdinSections() []string {
 	return strings.Split(strings.TrimSpace(SlurpStdin()), "\n\n")
 }
 
-func ParseInt(s string) (int) {
+func ParseInt(s string) int {
 	if x, err := strconv.ParseInt(s, 10, 64); err != nil {
 		panic(err)
 	} else {
@@ -36,8 +36,7 @@ func ParseIntPair(s string) (int, int) {
 	return ParseInt(pair[0]), ParseInt(pair[1])
 }
 
-func ParseIntArray() ([]int) {
-	lines := SlurpStdinLines()
+func ParseIntArray(lines []string) []int {
 	v := make([]int, len(lines))
 	for i, line := range lines {
 		v[i] = ParseInt(line)
@@ -45,7 +44,7 @@ func ParseIntArray() ([]int) {
 	return v
 }
 
-func ParseStringsTable() ([][]string) {
+func ParseStringsTable() [][]string {
 	lines := SlurpStdinLines()
 	v := make([][]string, len(lines))
 	for i, line := range lines {
@@ -54,7 +53,7 @@ func ParseStringsTable() ([][]string) {
 	return v
 }
 
-func Match(pattern, text string) (bool) {
+func Match(pattern, text string) bool {
 	if matched, err := regexp.Match(pattern, []byte(text)); err != nil {
 		panic(err)
 	} else {
