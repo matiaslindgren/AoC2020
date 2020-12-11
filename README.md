@@ -1,6 +1,8 @@
 # Advent of Code 2020 solutions
 
+Go-spaget.
+
 ```
 make
-bash run.bash
+./run.bash
 ```
