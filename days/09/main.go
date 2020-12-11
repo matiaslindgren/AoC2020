@@ -59,7 +59,7 @@ func search(v []int, preambleSize int) (int, int) {
 }
 
 func main() {
-	input := util.ParseIntArray()
+	input := util.ParseIntArray(util.SlurpStdinLines())
 	a, b := search(input, 25)
 	fmt.Println(a, b)
 }

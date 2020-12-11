@@ -27,7 +27,7 @@ loop:
 }
 
 func main() {
-	input := util.ParseIntArray()
+	input := util.ParseIntArray(util.SlurpStdinLines())
 	a, b := search(input)
 	fmt.Println(a, b)
 }
