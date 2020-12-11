@@ -60,3 +60,11 @@ func Match(pattern, text string) bool {
 		return matched
 	}
 }
+
+func ParseGrid(lines []string) Grid {
+	out := make(Grid, len(lines))
+	for y, line := range lines {
+		out[y] = []byte(line)
+	}
+	return out
+}
