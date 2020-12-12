@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/matiaslindgren/AoC2020/util"
 	"sort"
+	"github.com/matiaslindgren/AoC2020/util"
 )
 
 func countArrangements(jolts []int) int {

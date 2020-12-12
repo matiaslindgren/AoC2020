@@ -1,21 +1,27 @@
 package main
 
 import (
-	"github.com/matiaslindgren/AoC2020/util"
 	"fmt"
 	"strings"
+	"github.com/matiaslindgren/AoC2020/util"
 )
 
-func search(input [][]string) (int, int) {
+func parseLine(line string) (int, int, byte, string) {
+	parts := strings.Split(line, " ")
+	ij, req, rule := strings.Split(parts[0], "-"), parts[1][0], parts[2]
+	i, j := util.ParseInt(ij[0]), util.ParseInt(ij[1])
+	return i, j, req, rule
+}
+
+func search(input []string) (int, int) {
 	a, b := 0, 0
-	for _, s := range input {
-		pair, reqChar, line := s[0], s[1][0], s[2]
-		i, j := util.ParseIntPair(pair)
-		numReq := strings.Count(line, string(reqChar))
+	for _, line := range input {
+		i, j, reqChar, rule := parseLine(line)
+		numReq := strings.Count(rule, string(reqChar))
 		if i <= numReq && numReq <= j {
 			a++
 		}
-		if (s[2][i-1] == reqChar) != (s[2][j-1] == reqChar) {
+		if (rule[i-1] == reqChar) != (rule[j-1] == reqChar) {
 			b++
 		}
 	}
@@ -23,7 +29,7 @@ func search(input [][]string) (int, int) {
 }
 
 func main() {
-	input := util.ParseStringsTable()
+	input := util.SlurpStdinLines()
 	a, b := search(input)
 	fmt.Println(a, b)
 }

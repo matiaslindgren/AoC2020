@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/matiaslindgren/AoC2020/util"
 	"fmt"
 	"strings"
+	"github.com/matiaslindgren/AoC2020/util"
 )
 
 func decodeBitChars(from, on string) (int) {

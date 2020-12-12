@@ -6,73 +6,62 @@ import (
 	"strings"
 )
 
-func getParents(child2parents map[string][]string, key string) ([]string) {
-	parents := make([]string, 0)
-	for _, parent := range child2parents[key] {
-		parents = append(parents, parent)
-		for _, p := range getParents(child2parents, parent) {
-			parents = append(parents, p)
-		}
-	}
-	return parents
+func bagId(e []string) (string) {
+	return strings.Join(e, "-")
 }
 
-func getChildren(bag2counts map[string][]Count, key string) (int) {
+type Deps map[string]map[string]int
+
+func (deps *Deps) add(bag, sub string, count int) {
+	if dep, exists := (*deps)[bag]; exists {
+		dep[sub] = count
+	} else {
+		(*deps)[bag] = map[string]int{sub: count}
+	}
+}
+
+func (deps Deps) countUniqueDeps(bag string, visited map[string]bool) int {
+	if visited[bag] {
+		return 0
+	} else {
+		visited[bag] = true
+	}
 	n := 1
-	for _, count := range bag2counts[key] {
-		n += count.n * getChildren(bag2counts, count.bag)
+	for subBag, count := range deps[bag] {
+		n += count * deps.countUniqueDeps(subBag, visited)
 	}
 	return n
 }
 
-func join(e []string) (string) {
-	return strings.Join(e, "-")
-}
-
-func contains(elems []string, key string) (bool) {
-	for _, e := range elems {
-		if e == key {
-			return true
-		}
+func (deps Deps) countAllDeps(bag string) int {
+	n := 1
+	for subBag, count := range deps[bag] {
+		n += count * deps.countAllDeps(subBag)
 	}
-	return false
-}
-
-type Count struct {
-	bag string;
-	n int;
+	return n
 }
 
 func search(lines []string) (int, int) {
-	child2parents := map[string][]string{}
-	bag2counts := map[string][]Count{}
+	deps := Deps{}
+	rdeps := Deps{}
+
 	for _, line := range lines {
 		parts := strings.Split(strings.TrimRight(line, "."), " ")
 		if parts[4] == "no" {
 			continue
 		}
-		parent := join(parts[:2])
+		bag := bagId(parts[:2])
 		for i := 4; i < len(parts); i += 4 {
-			child := join(parts[i+1:i+3])
-			if !contains(child2parents[child], parent) {
-				child2parents[child] = append(child2parents[child], parent)
-			}
-			n := util.ParseInt(parts[i])
-			count := Count{child, n}
-			bag2counts[parent] = append(bag2counts[parent], count)
+			subBag := bagId(parts[i+1:i+3])
+			bagCount := util.ParseInt(parts[i])
+			deps.add(bag, subBag, bagCount)
+			rdeps.add(subBag, bag, 1)
 		}
 	}
 
-	parents := make([]string, 0)
-	for _, p := range getParents(child2parents, "shiny-gold") {
-		if !contains(parents, p) {
-			parents = append(parents, p)
-		}
-	}
-	a := len(parents)
-	b := getChildren(bag2counts, "shiny-gold") - 1
-
-	return a, b
+	a := rdeps.countUniqueDeps("shiny-gold", map[string]bool{})
+	b := deps.countAllDeps("shiny-gold")
+	return a-1, b-1
 }
 
 func main() {

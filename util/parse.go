@@ -24,31 +24,17 @@ func SlurpStdinSections() []string {
 }
 
 func ParseInt(s string) int {
-	if x, err := strconv.ParseInt(s, 10, 64); err != nil {
+	if x, err := strconv.Atoi(s); err != nil {
 		panic(err)
 	} else {
 		return int(x)
 	}
 }
 
-func ParseIntPair(s string) (int, int) {
-	pair := strings.Split(s, "-")
-	return ParseInt(pair[0]), ParseInt(pair[1])
-}
-
 func ParseIntArray(lines []string) []int {
 	v := make([]int, len(lines))
 	for i, line := range lines {
 		v[i] = ParseInt(line)
-	}
-	return v
-}
-
-func ParseStringsTable() [][]string {
-	lines := SlurpStdinLines()
-	v := make([][]string, len(lines))
-	for i, line := range lines {
-		v[i] = strings.Split(line, " ")
 	}
 	return v
 }

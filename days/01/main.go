@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/matiaslindgren/AoC2020/util"
 	"fmt"
+	"github.com/matiaslindgren/AoC2020/util"
 )
 
 func search(input []int) (int, int) {
