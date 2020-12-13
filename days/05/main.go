@@ -25,12 +25,8 @@ func search(lines []string) (int, int) {
 
 	minId, maxId := 1<<63-1, 0
 	for id := range idExists {
-		if id < minId {
-			minId = id
-		}
-		if id > maxId {
-			maxId = id
-		}
+		minId = util.Min(minId, id)
+		maxId = util.Max(maxId, id)
 	}
 
 	a, b := maxId, 0

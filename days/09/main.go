@@ -44,15 +44,7 @@ func search(v []int, preambleSize int) (int, int) {
 	}
 
 	l, r := subseqSumRange(v, a)
-	min, max := 1<<63-1, 0
-	for _, x := range v[l:r+1] {
-		if x > max {
-			max = x
-		}
-		if x < min {
-			min = x
-		}
-	}
+	min, max := util.MinMax(v[l:r+1])
 	b := min + max
 
 	return a, b
