@@ -28,8 +28,7 @@ func (m Memory) sum() int {
 }
 
 func applyValMask(mask string, val int) int {
-	n := len(mask)
-	for i := 0; i < n; i++ {
+	for i,n := 0,len(mask); i < n; i++ {
 		bit := 1<<(n-i-1)
 		switch mask[i] {
 		case '1':
@@ -43,11 +42,10 @@ func applyValMask(mask string, val int) int {
 
 func applyIdxMask(mask string, idx int) []int {
 	idxCombinations := []int{0}
-	n := len(mask)
 	idxMasked := 0
-	for j := 0; j < n; j++ {
-		bit := 1<<(n-j-1)
-		switch mask[j] {
+	for i,n := 0,len(mask); i < n; i++ {
+		bit := 1<<(n-i-1)
+		switch mask[i] {
 		case 'X':
 			tmp := []int{}
 			for _, idx := range idxCombinations {
@@ -61,8 +59,8 @@ func applyIdxMask(mask string, idx int) []int {
 		}
 	}
 	res := make([]int, len(idxCombinations))
-	for j, idx1 := range idxCombinations {
-		res[j] = idx1|idxMasked
+	for i, idx1 := range idxCombinations {
+		res[i] = idx1|idxMasked
 	}
 	return res
 }
