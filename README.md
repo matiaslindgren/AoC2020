@@ -4,5 +4,5 @@ Go-spaget.
 
 ```
 make
-./run.bash
+./run.sh
 ```

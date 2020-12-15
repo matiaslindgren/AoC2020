@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 set -ue
 
 
 function assert_is_file {
 	if [ ! -f "$1" ]; then
-		echo "run.sh: '$1' does not exist or is not a file" > /dev/stderr
+		echo "$0: error: '$1' does not exist or is not a file" > /dev/stderr
 		exit 1
 	fi
 }
@@ -12,7 +12,7 @@ function assert_is_file {
 
 function run_day {
 	local day=$1
-	local input=txt/input/${day}.txt
+	local input=./txt/input/${day}.txt
 	local exe=./bin/$day
 
 	printf "\n%s\n" $exe
@@ -23,7 +23,7 @@ function run_day {
 	local output="$(cat $input | $exe)"
 	printf "output: %s\n" "$output"
 
-	local expect=txt/expect/${day}.txt
+	local expect=./txt/expect/${day}.txt
 	if [ -f "$expect" ]; then
 		local e="$(cat $expect)"
 		printf "expect: %s\n" "$e"
