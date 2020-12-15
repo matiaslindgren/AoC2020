@@ -23,6 +23,10 @@ func SlurpStdinSections() []string {
 	return strings.Split(strings.TrimSpace(SlurpStdin()), "\n\n")
 }
 
+func SlurpStdinArray(delim string) []int {
+	return ParseIntArray(strings.Split(strings.TrimSpace(SlurpStdin()), delim))
+}
+
 func ParseInt(s string) int {
 	if x, err := strconv.Atoi(s); err != nil {
 		panic(err)
