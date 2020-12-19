@@ -25,7 +25,7 @@ Find minimum and maximum numbers, then find the only ID missing between the min-
 13. Chinese remainder theorem and Go standard library big integers.
 14. Combination of string parsing and bit twiddling according to the given rules. Use hash tables to simulate the memory to allow large indexes.
 15. Brute-force search over all age steps `t` starting at 0, with hash tables of ages of each number.
-16. Brute-force spaghetti in need of tidying.
+16. Filter all valid tickets and sum invalid values (part A). Find all valid rules for every column/ticket-index. Select rules for columns by greedy search by assigning a rule to a column which has only one valid rule, until all rules have been assigned.
 17. Brute-force on 3D and 4D grids of booleans. Grids are hash maps to allow negative indexes.
 18. Convert infix expression to postfix with the shunting yard algorithm, then evaluate the postfix expression with given precedence rules.
 19. Convert given grammar to Chomsky normal form, then use the Cocke–Younger–Kasami algorithm to check if each input line is in the language.
