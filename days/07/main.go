@@ -20,15 +20,15 @@ func (deps *Deps) add(bag, sub string, count int) {
 	}
 }
 
-func (deps Deps) countUniqueDeps(bag string, visited map[string]bool) int {
+func (deps Deps) countReachableNodes(bag string, visited map[string]bool) int {
 	if visited[bag] {
 		return 0
 	} else {
 		visited[bag] = true
 	}
 	n := 1
-	for subBag, count := range deps[bag] {
-		n += count * deps.countUniqueDeps(subBag, visited)
+	for subBag := range deps[bag] {
+		n += deps.countReachableNodes(subBag, visited)
 	}
 	return n
 }
@@ -59,7 +59,7 @@ func search(lines []string) (int, int) {
 		}
 	}
 
-	a := rdeps.countUniqueDeps("shiny-gold", map[string]bool{})
+	a := rdeps.countReachableNodes("shiny-gold", map[string]bool{})
 	b := deps.countAllDeps("shiny-gold")
 	return a-1, b-1
 }

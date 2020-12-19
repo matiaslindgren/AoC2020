@@ -37,9 +37,9 @@ func (r Rule) valid(x int) bool {
 	return (r.R[0] <= x && x <= r.R[1]) || (r.R[2] <= x && x <= r.R[3])
 }
 
-func valid(rules []Rule, x int) (bool) {
+func allValid(rules []Rule, x int) (bool) {
 	for _, rule := range rules {
-		if (rule.R[0] <= x && x <= rule.R[1]) || (rule.R[2] <= x && x <= rule.R[3]) {
+		if rule.valid(x) {
 			return true
 		}
 	}
@@ -67,7 +67,7 @@ func search(input string) (int, int) {
 		v := util.ParseIntArray(Split(t, ","))
 		ok := true
 		for _, x := range v {
-			if !valid(rules, x) {
+			if !allValid(rules, x) {
 				a += x
 				ok = false
 				break
