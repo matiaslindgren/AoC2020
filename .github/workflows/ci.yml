@@ -10,4 +10,6 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: '1.15'
-      - run: make && ./run.sh
+      - run:
+        - make
+        - ./run.sh
