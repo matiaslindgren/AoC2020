@@ -87,11 +87,10 @@ func (grammar CNF) isInLanguage(input string) bool {
 	for _, k := range keys {
 		key2idx[k] = len(key2idx)+1
 	}
-	tableKey := func(ruleKey string) int { return key2idx[ruleKey] }
 
 	for s := 1; s <= n; s++ {
 		for k, rule := range grammar {
-			v := tableKey(k)
+			v := key2idx[k]
 			for _, symbols := range rule {
 				if isTerminal(symbols) && symbols[0][1] == input[s-1] {
 					P[1][s][v] = true
@@ -104,10 +103,10 @@ func (grammar CNF) isInLanguage(input string) bool {
 		for s := 1; s <= n-l+1; s++ {
 			for p := 1; p <= l-1; p++ {
 				for k, rule := range grammar {
-					a := tableKey(k)
+					a := key2idx[k]
 					for _, symbols := range rule {
 						if !isTerminal(symbols) {
-							b, c := tableKey(symbols[0]), tableKey(symbols[1])
+							b, c := key2idx[symbols[0]], key2idx[symbols[1]]
 							if P[p][s][b] && P[l-p][s+p][c] {
 								P[l][s][a] = true
 							}
