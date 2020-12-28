@@ -29,3 +29,5 @@ Find minimum and maximum numbers, then find the only ID missing between the min-
 17. Brute-force on 3D and 4D grids of booleans. Grids are hash maps to allow negative indexes.
 18. Convert infix expression to postfix with the shunting yard algorithm, then evaluate the postfix expression with given precedence rules.
 19. Convert given grammar to Chomsky normal form, then use the Cocke–Younger–Kasami algorithm to check if each input line is in the language.
+22. Simple recursive search. Copy all cards one each recursive call. Store all seen card permutations in a set of strings.
+23. Create a doubly linked circular list and perform 10 000 000 times the un-linking and re-linking steps as defined by the rules.

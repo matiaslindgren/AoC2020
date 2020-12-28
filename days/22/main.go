@@ -33,7 +33,7 @@ func gameA(cards1, cards2 []int) (int, int) {
 
 func gameB(cards1, cards2 []int) (int, int) {
 	seen := map[string]bool{}
-	for oneWins := true; len(cards1) > 0 && len(cards2) > 0; {
+	for len(cards1) > 0 && len(cards2) > 0 {
 		if key := fmt.Sprint(cards1, cards2); seen[key] {
 			return 0, -1
 		} else {
@@ -41,6 +41,7 @@ func gameB(cards1, cards2 []int) (int, int) {
 		}
 		c1, c2 := cards1[0], cards2[0]
 		cards1, cards2 = cards1[1:], cards2[1:]
+		var oneWins bool
 		if len(cards1) >= c1 && len(cards2) >= c2 {
 			s1, s2 := gameB(
 				append([]int{}, cards1[:c1]...),
