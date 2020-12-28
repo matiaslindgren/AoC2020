@@ -20,16 +20,16 @@ Find minimum and maximum numbers, then find the only ID missing between the min-
 8. Brute-force search, try running the program in an interpreter and do an early exit if there is a loop.
 9. Brute-force search.
 10. Compute all valid combination counts with dynamic programming.
-11. Two 2D grids consisting of byte elements. Copy the grid on each update and continue updating until there are no changes.
-12. Compute integer rotations with sin and cos in 2D space while avoiding floating-point rounding errors.
+11. Two 2D grids consisting of `byte` elements. Copy the grid on each update and continue updating until there are no changes.
+12. Compute integer rotations with sin and cos in 2D space while carefully avoiding floating-point rounding errors.
 13. Chinese remainder theorem and Go standard library big integers.
 14. Combination of string parsing and bit twiddling according to the given rules. Use hash tables to simulate the memory to allow large indexes.
 15. Brute-force search over all age steps `t` starting at 0, with hash tables of ages of each number.
 16. Filter all valid tickets and sum invalid values (part A). Find all valid rules for every column/ticket-index. Select rules for columns by greedy search by assigning a rule to a column which has only one valid rule, until all rules have been assigned.
 17. Brute-force on 3D and 4D grids of booleans. Grids are hash maps to allow negative indexes.
-18. Convert infix expression to postfix with the shunting yard algorithm, then evaluate the postfix expression with given precedence rules.
-19. Convert given grammar to Chomsky normal form, then use the Cocke–Younger–Kasami algorithm to check if each input line is in the language.
+18. Convert infix expressions to postfix with the shunting yard algorithm, then evaluate postfix expressions with the given precedence rules.
+19. Convert the given grammar to Chomsky normal form, then use the Cocke–Younger–Kasami algorithm to check if each input line is in the language.
 20. -
 21. -
-22. Simple recursive search. Copy all cards one each recursive call. Store all seen card permutations in a set of strings.
+22. Simple recursive search. Copy all cards on each recursive call. Store all seen card permutations in a set of strings.
 23. Create a doubly linked circular list and perform 10 000 000 times the un-linking and re-linking steps as defined by the rules.
