@@ -34,3 +34,4 @@ Find minimum and maximum numbers, then find the only ID missing between the min-
 22. Simple recursive search. Copy all cards on each recursive call. Store all seen card permutations in a set of strings.
 23. Create a doubly linked circular list and perform 10 000 000 times the un-linking and re-linking steps as defined by the rules.
 24. Represent hexagonal grid in axial coordinates and store tile state in a hash table of booleans (true == black tile).
+25. Brute-force search.

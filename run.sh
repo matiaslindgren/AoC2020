@@ -37,8 +37,8 @@ function run_day {
 
 if [ $# -eq 0 ]; then
 	for day in $(find bin -regex 'bin/[0-2][0-9]$' | sort); do
-		run_day $(basename $day)
+		time run_day $(basename $day)
 	done
 else
-	run_day $1
+	time run_day $1
 fi
