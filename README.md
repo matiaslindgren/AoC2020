@@ -30,7 +30,7 @@ Find minimum and maximum numbers, then find the only ID missing between the min-
 18. Convert infix expressions to postfix with the shunting yard algorithm, then evaluate postfix expressions with the given precedence rules.
 19. Convert the given grammar to Chomsky normal form, then use the Cocke–Younger–Kasami algorithm to check if each input line is in the language.
 20. -
-21. -
+21. Group foods by allergen, then take set intersect over all ingredient sets inside each group (part A). Recursively search for first valid mapping from allergens to ingredients, where valid means all mapped values are arrays of a single ingredient and each ingredient appears only once in the mapping (part B).
 22. Simple recursive search. Copy all cards on each recursive call. Store all seen card permutations in a set of strings.
 23. Create a doubly linked circular list and perform 10 000 000 times the un-linking and re-linking steps as defined by the rules.
 24. Represent hexagonal grid in axial coordinates and store tile state in a hash table of booleans (true == black tile).
