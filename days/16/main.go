@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"strings"
-
 	"github.com/matiaslindgren/AoC2020/util"
 )
 

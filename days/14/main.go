@@ -19,6 +19,7 @@ func parseSection(s string) (string, []string) {
 }
 
 type Memory map[int]int
+
 func (m Memory) sum() int {
 	s := 0
 	for _, x := range m {

@@ -8,7 +8,7 @@ import (
 
 type Passport map[string]string
 
-func emptyPassport() (Passport) {
+func emptyPassport() Passport {
 	return Passport{
 		"byr": "",
 		"cid": "",
@@ -21,7 +21,7 @@ func emptyPassport() (Passport) {
 	}
 }
 
-func (p Passport) isFilled() (bool) {
+func (p Passport) isFilled() bool {
 	for k, v := range p {
 		if k != "cid" && len(v) == 0 {
 			return false
@@ -30,7 +30,7 @@ func (p Passport) isFilled() (bool) {
 	return true
 }
 
-func (p Passport) isValid() (bool) {
+func (p Passport) isValid() bool {
 	if !p.isFilled() {
 		return false
 	}
@@ -42,7 +42,7 @@ func (p Passport) isValid() (bool) {
 	return true
 }
 
-func isValidField(key, val string) (bool) {
+func isValidField(key, val string) bool {
 	switch key {
 	case "cid":
 		return true

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"sort"
 	"strings"
-
 	"github.com/matiaslindgren/AoC2020/util"
 )
 

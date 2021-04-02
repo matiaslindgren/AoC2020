@@ -6,7 +6,7 @@ import (
 	"github.com/matiaslindgren/AoC2020/util"
 )
 
-func decodeBitChars(from, on string) (int) {
+func decodeBitChars(from, on string) int {
 	x, n := 0, len(from)
 	for i, ch := range from {
 		if strings.ContainsAny(string(ch), on) {

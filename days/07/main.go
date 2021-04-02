@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/matiaslindgren/AoC2020/util"
 	"strings"
+	"github.com/matiaslindgren/AoC2020/util"
 )
 
-func bagId(e []string) (string) {
+func bagId(e []string) string {
 	return strings.Join(e, "-")
 }
 

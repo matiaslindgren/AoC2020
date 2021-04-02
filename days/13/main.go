@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"math/big"
 	"strings"
-
 	"github.com/matiaslindgren/AoC2020/util"
 )
 

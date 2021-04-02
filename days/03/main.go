@@ -5,7 +5,7 @@ import (
 	"github.com/matiaslindgren/AoC2020/util"
 )
 
-func countTrees(lines []string, dx, dy int) (int) {
+func countTrees(lines []string, dx, dy int) int {
 	n := 0
 	xMax, yMax := len(lines[0]), len(lines)
 	for x, y := 0, 0; y < yMax; x, y = (x+dx)%xMax, y+dy {

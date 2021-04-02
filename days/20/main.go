@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"regexp"
 	"strings"
-
 	"github.com/matiaslindgren/AoC2020/util"
 )
 
