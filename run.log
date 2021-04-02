@@ -1,0 +1,224 @@
+
+./bin/01
+input:  200 lines from ./txt/input/01.txt
+output: 776064 6964490
+expect: 776064 6964490
+
+real	0m0.241s
+user	0m0.008s
+sys	0m0.008s
+
+./bin/02
+input:  1000 lines from ./txt/input/02.txt
+output: 546 275
+expect: 546 275
+
+real	0m0.165s
+user	0m0.007s
+sys	0m0.008s
+
+./bin/03
+input:  323 lines from ./txt/input/03.txt
+output: 280 4355551200
+expect: 280 4355551200
+
+real	0m0.170s
+user	0m0.007s
+sys	0m0.008s
+
+./bin/04
+input:  953 lines from ./txt/input/04.txt
+output: 170 103
+expect: 170 103
+
+real	0m0.188s
+user	0m0.015s
+sys	0m0.010s
+
+./bin/05
+input:  816 lines from ./txt/input/05.txt
+output: 848 682
+expect: 848 682
+
+real	0m0.170s
+user	0m0.007s
+sys	0m0.008s
+
+./bin/06
+input:  2046 lines from ./txt/input/06.txt
+output: 6625 3360
+expect: 6625 3360
+
+real	0m0.163s
+user	0m0.007s
+sys	0m0.008s
+
+./bin/07
+input:  594 lines from ./txt/input/07.txt
+output: 248 57281
+expect: 248 57281
+
+real	0m0.168s
+user	0m0.008s
+sys	0m0.009s
+
+./bin/08
+input:  633 lines from ./txt/input/08.txt
+output: 1337 1358
+expect: 1337 1358
+
+real	0m0.181s
+user	0m0.013s
+sys	0m0.009s
+
+./bin/09
+input:  1000 lines from ./txt/input/09.txt
+output: 138879426 23761694
+expect: 138879426 23761694
+
+real	0m0.180s
+user	0m0.007s
+sys	0m0.009s
+
+./bin/10
+input:  92 lines from ./txt/input/10.txt
+output: 1656 56693912375296
+expect: 1656 56693912375296
+
+real	0m0.168s
+user	0m0.007s
+sys	0m0.008s
+
+./bin/11
+input:  97 lines from ./txt/input/11.txt
+output: 2472 2197
+expect: 2472 2197
+
+real	0m0.214s
+user	0m0.055s
+sys	0m0.008s
+
+./bin/12
+input:  793 lines from ./txt/input/12.txt
+output: 364 39518
+expect: 364 39518
+
+real	0m0.160s
+user	0m0.006s
+sys	0m0.007s
+
+./bin/13
+input:  2 lines from ./txt/input/13.txt
+output: 4722 825305207525452
+expect: 4722 825305207525452
+
+real	0m0.169s
+user	0m0.007s
+sys	0m0.008s
+
+./bin/14
+input:  570 lines from ./txt/input/14.txt
+output: 9628746976360 4574598714592
+expect: 9628746976360 4574598714592
+
+real	0m0.186s
+user	0m0.023s
+sys	0m0.011s
+
+./bin/15
+input:  1 lines from ./txt/input/15.txt
+output: 211 2159626
+expect: 211 2159626
+
+real	0m4.655s
+user	0m4.354s
+sys	0m0.167s
+
+./bin/16
+input:  268 lines from ./txt/input/16.txt
+output: 29878 855438643439
+expect: 29878 855438643439
+
+real	0m0.163s
+user	0m0.007s
+sys	0m0.008s
+
+./bin/17
+input:  8 lines from ./txt/input/17.txt
+output: 252 2160
+expect: 252 2160
+
+real	0m2.376s
+user	0m2.238s
+sys	0m0.019s
+
+./bin/18
+input:  371 lines from ./txt/input/18.txt
+output: 14006719520523 545115449981968
+expect: 14006719520523 545115449981968
+
+real	0m0.163s
+user	0m0.007s
+sys	0m0.008s
+
+./bin/19
+input:  480 lines from ./txt/input/19.txt
+output: 165 274
+expect: 165 274
+
+real	1m59.128s
+user	1m59.033s
+sys	0m0.344s
+
+./bin/20
+input:  1728 lines from ./txt/input/20.txt
+output: 47213728755493 1599
+
+real	0m0.554s
+user	0m0.385s
+sys	0m0.028s
+
+./bin/21
+input:  40 lines from ./txt/input/21.txt
+output: 2324 bxjvzk,hqgqj,sp,spl,hsksz,qzzzf,fmpgn,tpnnkc
+expect: 2324 bxjvzk,hqgqj,sp,spl,hsksz,qzzzf,fmpgn,tpnnkc
+
+real	0m0.161s
+user	0m0.007s
+sys	0m0.007s
+
+./bin/22
+input:  53 lines from ./txt/input/22.txt
+output: 32677 33661
+expect: 32677 33661
+
+real	0m2.939s
+user	0m2.873s
+sys	0m0.087s
+
+./bin/23
+input:  1 lines from ./txt/input/23.txt
+output: 69473825 96604396189
+expect: 69473825 96604396189
+
+real	0m4.870s
+user	0m4.829s
+sys	0m0.055s
+
+./bin/24
+input:  411 lines from ./txt/input/24.txt
+output: 339 3794
+expect: 339 3794
+
+real	0m2.697s
+user	0m2.553s
+sys	0m0.083s
+
+./bin/25
+input:  2 lines from ./txt/input/25.txt
+output: 5025281
+expect: 5025281
+
+real	0m0.305s
+user	0m0.153s
+sys	0m0.007s
