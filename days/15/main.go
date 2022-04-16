@@ -14,7 +14,7 @@ func search(v []int) (int, int) {
 	}
 	a := 0
 	for ; t <= 30_000_000; t++ {
-		prev = age2[prev]-age1[prev]
+		prev = age2[prev] - age1[prev]
 		age1[prev], age2[prev] = age2[prev], t
 		if age1[prev] == 0 {
 			age1[prev] = t

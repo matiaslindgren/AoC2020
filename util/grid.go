@@ -1,6 +1,5 @@
 package util
 
-
 type Grid [][]byte
 
 func (g Grid) Copy() Grid {
@@ -36,7 +35,7 @@ func (g Grid) NumOnQueensPath(y0, x0 int, ch byte) int {
 			if dx == 0 && dy == 0 {
 				continue
 			}
-			for y,x := y0+dy,x0+dx; !g.IsOff(y,x); y,x = y+dy,x+dx {
+			for y, x := y0+dy, x0+dx; !g.IsOff(y, x); y, x = y+dy, x+dx {
 				switch g[y][x] {
 				case '.':
 					continue
@@ -58,7 +57,7 @@ func (g Grid) NumAdjacent(y0, x0 int, ch byte) int {
 				continue
 			}
 			y, x := y0+dy, x0+dx
-			if !g.IsOff(y,x) && g[y][x] == ch {
+			if !g.IsOff(y, x) && g[y][x] == ch {
 				n++
 			}
 		}

@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/matiaslindgren/AoC2020/util"
 	"sort"
 	"strings"
-	"github.com/matiaslindgren/AoC2020/util"
 )
 
 type Rule [][]string
@@ -82,10 +82,11 @@ func (grammar CNF) isInLanguage(input string) bool {
 	for k := range grammar {
 		keys = append(keys, k)
 	}
-	sort.Slice(keys, func (i, j int) bool {
-		return util.ParseInt(keys[i]) < util.ParseInt(keys[j]) })
+	sort.Slice(keys, func(i, j int) bool {
+		return util.ParseInt(keys[i]) < util.ParseInt(keys[j])
+	})
 	for _, k := range keys {
-		key2idx[k] = len(key2idx)+1
+		key2idx[k] = len(key2idx) + 1
 	}
 
 	for s := 1; s <= n; s++ {
@@ -133,7 +134,7 @@ func search(ruleSection, inputSection string) (int, int) {
 	}
 
 	grammar["8"] = Rule{[]string{"42"}, []string{"42", "8"}}
-	newKey := fmt.Sprint(grammar.maxKey()+1)
+	newKey := fmt.Sprint(grammar.maxKey() + 1)
 	grammar["11"] = Rule{[]string{"42", "31"}, []string{"42", newKey}}
 	grammar[newKey] = Rule{[]string{"11", "31"}}
 	grammar = grammar.removeUnitRules()

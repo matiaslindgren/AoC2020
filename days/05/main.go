@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"github.com/matiaslindgren/AoC2020/util"
+	"strings"
 )
 
 func decodeBitChars(from, on string) int {
 	x, n := 0, len(from)
 	for i, ch := range from {
 		if strings.ContainsAny(string(ch), on) {
-			x += 1 << (n-i-1)
+			x += 1 << (n - i - 1)
 		}
 	}
 	return x

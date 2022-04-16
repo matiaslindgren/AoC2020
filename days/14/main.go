@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/matiaslindgren/AoC2020/util"
 	"regexp"
 	"strings"
-	"github.com/matiaslindgren/AoC2020/util"
 )
 
 func parseMemoryAccess(line string) (int, int) {
@@ -29,8 +29,8 @@ func (m Memory) sum() int {
 }
 
 func applyValMask(mask string, val int) int {
-	for i,n := 0,len(mask); i < n; i++ {
-		bit := 1<<(n-i-1)
+	for i, n := 0, len(mask); i < n; i++ {
+		bit := 1 << (n - i - 1)
 		switch mask[i] {
 		case '1':
 			val |= bit
@@ -44,8 +44,8 @@ func applyValMask(mask string, val int) int {
 func applyIdxMask(mask string, idx int) []int {
 	idxCombinations := []int{0}
 	idxMasked := 0
-	for i,n := 0,len(mask); i < n; i++ {
-		bit := 1<<(n-i-1)
+	for i, n := 0, len(mask); i < n; i++ {
+		bit := 1 << (n - i - 1)
 		switch mask[i] {
 		case 'X':
 			tmp := []int{}
@@ -56,12 +56,12 @@ func applyIdxMask(mask string, idx int) []int {
 		case '1':
 			idxMasked |= bit
 		case '0':
-			idxMasked |= bit&idx
+			idxMasked |= bit & idx
 		}
 	}
 	res := make([]int, len(idxCombinations))
 	for i, idx1 := range idxCombinations {
-		res[i] = idx1|idxMasked
+		res[i] = idx1 | idxMasked
 	}
 	return res
 }

@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/matiaslindgren/AoC2020/util"
 	"math/bits"
 	"strings"
-	"github.com/matiaslindgren/AoC2020/util"
 )
 
 func search(sections []string) (int, int) {
@@ -14,7 +14,7 @@ func search(sections []string) (int, int) {
 		for _, ans := range strings.Split(section, "\n") {
 			total := uint(0)
 			for _, c := range ans {
-				total |= 1 << ('z'-c)
+				total |= 1 << ('z' - c)
 			}
 			any |= total
 			all &= total

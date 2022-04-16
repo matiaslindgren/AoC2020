@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"github.com/matiaslindgren/AoC2020/util"
+	"strings"
 )
 
 var Split = strings.Split
 
 type Rule struct {
-	Name string
+	Name                   string
 	aMin, aMax, bMin, bMax int
 }
 

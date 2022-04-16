@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"github.com/matiaslindgren/AoC2020/util"
+	"strings"
 )
 
 func parseInstruction(line string) (string, int) {

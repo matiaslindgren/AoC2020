@@ -22,7 +22,7 @@ func initEmptyGrid3D(n int) Grid3D {
 }
 
 func initGrid3D(lines []string) Grid3D {
-	n := len(lines)/2
+	n := len(lines) / 2
 	g := initEmptyGrid3D(n)
 	for y, row := range lines {
 		for x, ch := range row {
@@ -63,7 +63,7 @@ func (in Grid3D) countActive() int {
 	return n
 }
 
-func(in Grid3D) step() Grid3D {
+func (in Grid3D) step() Grid3D {
 	n := len(in)/2 + 1
 	out := initEmptyGrid3D(n)
 	for z := -n; z <= n; z++ {
@@ -89,7 +89,7 @@ func initEmptyGrid4D(n int) Grid4D {
 }
 
 func initGrid4D(lines []string) Grid4D {
-	n := len(lines)/2
+	n := len(lines) / 2
 	g := initEmptyGrid4D(n)
 	for y, row := range lines {
 		for x, ch := range row {
@@ -126,7 +126,7 @@ func (in Grid4D) countActive() int {
 	return n
 }
 
-func(in Grid4D) step() Grid4D {
+func (in Grid4D) step() Grid4D {
 	n := len(in)/2 + 1
 	out := initEmptyGrid4D(n)
 	for w := -n; w <= n; w++ {

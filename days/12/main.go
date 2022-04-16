@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"github.com/matiaslindgren/AoC2020/util"
+	"math"
 )
 
 func abs(x int) int {
@@ -20,8 +20,8 @@ func rad(deg int) float64 {
 func rot(x0, y0, deg int) (int, int) {
 	cos := int(math.Round(math.Cos(rad(deg))))
 	sin := int(math.Round(math.Sin(rad(deg))))
-	x1 := x0 * cos - y0 * sin
-	y1 := x0 * sin + y0 * cos
+	x1 := x0*cos - y0*sin
+	y1 := x0*sin + y0*cos
 	return x1, y1
 }
 
@@ -72,9 +72,9 @@ func searchA(lines []string) int {
 		}
 		switch ch {
 		case 'L':
-			dir = (dir + 4 - (num/90))%4
+			dir = (dir + 4 - (num / 90)) % 4
 		case 'R':
-			dir = (dir + (num/90))%4
+			dir = (dir + (num / 90)) % 4
 		default:
 			x, y = move(ch, x, y, num)
 		}

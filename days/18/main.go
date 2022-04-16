@@ -14,7 +14,7 @@ func infix2postfix(input string, equalPrecedence bool) string {
 		switch token {
 		case ' ':
 		case ')':
-			for i := len(ops)-1; ops[i] != '('; i-- {
+			for i := len(ops) - 1; ops[i] != '('; i-- {
 				out = append(out, ops[i])
 				ops = ops[:i]
 			}
@@ -22,7 +22,7 @@ func infix2postfix(input string, equalPrecedence bool) string {
 		case '*':
 			fallthrough
 		case '+':
-			for i := len(ops)-1; i >= 0 && (ops[i] == '+' || (equalPrecedence && ops[i] == '*')); i-- {
+			for i := len(ops) - 1; i >= 0 && (ops[i] == '+' || (equalPrecedence && ops[i] == '*')); i-- {
 				out = append(out, ops[i])
 				ops = ops[:i]
 			}
@@ -33,7 +33,7 @@ func infix2postfix(input string, equalPrecedence bool) string {
 			out = append(out, token)
 		}
 	}
-	for i := len(ops)-1; i >= 0; i-- {
+	for i := len(ops) - 1; i >= 0; i-- {
 		out = append(out, ops[i])
 	}
 	return string(out)

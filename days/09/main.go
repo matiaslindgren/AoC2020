@@ -5,10 +5,10 @@ import (
 	"github.com/matiaslindgren/AoC2020/util"
 )
 
-func hasSumPair(v []int, val int) (bool) {
+func hasSumPair(v []int, val int) bool {
 	for i, x := range v {
 		for _, y := range v[i+1:] {
-			if x + y == val {
+			if x+y == val {
 				return true
 			}
 		}
@@ -18,7 +18,7 @@ func hasSumPair(v []int, val int) (bool) {
 
 func subseqSumRange(v []int, a int) (int, int) {
 	s, l, r := v[0], 0, 1
-	for ; l < r && r < len(v); {
+	for l < r && r < len(v) {
 		switch {
 		case s > a:
 			s -= v[l]
@@ -36,7 +36,7 @@ func subseqSumRange(v []int, a int) (int, int) {
 func search(v []int, preambleSize int) (int, int) {
 	a := 0
 	for i, x := range v[preambleSize+1:] {
-		preamble := v[i:i+preambleSize+1]
+		preamble := v[i : i+preambleSize+1]
 		if !hasSumPair(preamble, x) {
 			a = x
 			break
@@ -44,7 +44,7 @@ func search(v []int, preambleSize int) (int, int) {
 	}
 
 	l, r := subseqSumRange(v, a)
-	min, max := util.MinMax(v[l:r+1])
+	min, max := util.MinMax(v[l : r+1])
 	b := min + max
 
 	return a, b

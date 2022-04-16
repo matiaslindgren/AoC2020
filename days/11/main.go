@@ -45,11 +45,11 @@ func stepB(in util.Grid) (util.Grid, bool) {
 
 func search(grid util.Grid) (int, int) {
 	var g util.Grid
-	for tmp,c := stepA(grid); c; tmp,c = stepA(tmp) {
+	for tmp, c := stepA(grid); c; tmp, c = stepA(tmp) {
 		g = tmp
 	}
 	a := g.Count('#')
-	for tmp,c := stepB(grid); c; tmp,c = stepB(tmp) {
+	for tmp, c := stepB(grid); c; tmp, c = stepB(tmp) {
 		g = tmp
 	}
 	b := g.Count('#')

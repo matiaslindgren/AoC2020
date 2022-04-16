@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"github.com/matiaslindgren/AoC2020/util"
+	"strings"
 )
 
 func bagId(e []string) string {
@@ -52,7 +52,7 @@ func search(lines []string) (int, int) {
 		}
 		bag := bagId(parts[:2])
 		for i := 4; i < len(parts); i += 4 {
-			subBag := bagId(parts[i+1:i+3])
+			subBag := bagId(parts[i+1 : i+3])
 			bagCount := util.ParseInt(parts[i])
 			deps.add(bag, subBag, bagCount)
 			rdeps.add(subBag, bag, 1)
@@ -61,7 +61,7 @@ func search(lines []string) (int, int) {
 
 	a := rdeps.countReachableNodes("shiny-gold", map[string]bool{})
 	b := deps.countAllDeps("shiny-gold")
-	return a-1, b-1
+	return a - 1, b - 1
 }
 
 func main() {

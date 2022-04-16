@@ -1,14 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"container/ring"
+	"fmt"
 	"github.com/matiaslindgren/AoC2020/util"
 )
 
 type Ring struct {
-	n int
-	r *ring.Ring
+	n        int
+	r        *ring.Ring
 	val2node map[int]*ring.Ring
 }
 
@@ -19,7 +19,7 @@ func newRing(v []int, n int) Ring {
 		if i < len(v) {
 			r.Value = v[i]
 		} else {
-			r.Value = i+1
+			r.Value = i + 1
 		}
 		ring.val2node[r.Value.(int)] = r
 		r = r.Next()
@@ -29,7 +29,7 @@ func newRing(v []int, n int) Ring {
 
 func contains(r *ring.Ring, x int) bool {
 	yes := false
-	r.Do(func(val interface{}) { yes = yes || val.(int)==x })
+	r.Do(func(val interface{}) { yes = yes || val.(int) == x })
 	return yes
 }
 
@@ -38,7 +38,7 @@ func (r *Ring) step() {
 	three := r.r.Unlink(3)
 	cup2 := cup1
 	for cup1 == cup2 || contains(three, cup2) {
-		cup2 = ((cup2-2) % r.n + r.n) % r.n + 1
+		cup2 = ((cup2-2)%r.n+r.n)%r.n + 1
 	}
 	r.val2node[cup2].Link(three)
 	r.r = r.val2node[cup1].Next()

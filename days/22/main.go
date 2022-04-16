@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"github.com/matiaslindgren/AoC2020/util"
+	"strings"
 )
 
 func parseCards(section string) []int {
@@ -13,7 +13,7 @@ func parseCards(section string) []int {
 func score(cards []int) int {
 	s, n := 0, len(cards)
 	for i, c := range cards {
-		s += c * (n-i)
+		s += c * (n - i)
 	}
 	return s
 }

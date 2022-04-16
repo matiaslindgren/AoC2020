@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/matiaslindgren/AoC2020/util"
 	"math/big"
 	"strings"
-	"github.com/matiaslindgren/AoC2020/util"
 )
 
 func searchB(ids []*big.Int) int64 {
@@ -16,7 +16,7 @@ func searchB(ids []*big.Int) int64 {
 	}
 
 	one := big.NewInt(1)
-	k := big.NewInt(int64(len(ids)-1))
+	k := big.NewInt(int64(len(ids) - 1))
 	var i, a, m1, m2, n2, gcd big.Int
 	sum := big.NewInt(0)
 
@@ -40,7 +40,7 @@ func searchB(ids []*big.Int) int64 {
 
 func searchA(ids []*big.Int, earliest int64) int64 {
 	a := int64(0)
-	min := int64(1<<63-1)
+	min := int64(1<<63 - 1)
 	for _, nBig := range ids {
 		if nBig == nil {
 			continue

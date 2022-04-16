@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/matiaslindgren/AoC2020/util"
 	"sort"
 	"strings"
-	"github.com/matiaslindgren/AoC2020/util"
 )
 
 type Food struct {
 	ingredients []string
-	allergens []string
+	allergens   []string
 }
 
 func intersectIngredients(foods []*Food) []string {

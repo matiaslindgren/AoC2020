@@ -2,17 +2,18 @@ package main
 
 import (
 	"fmt"
+	"github.com/matiaslindgren/AoC2020/util"
 	"regexp"
 	"strings"
-	"github.com/matiaslindgren/AoC2020/util"
 )
 
 const (
-	UP = 0
+	UP    = 0
 	RIGHT = 1
-	DOWN = 2
-	LEFT = 3
+	DOWN  = 2
+	LEFT  = 3
 )
+
 var monsterPattern = [3]string{
 	"..................#..",
 	"#....##....##....###.",
@@ -40,7 +41,7 @@ func parseTile(section string) Tile {
 	t.borders[DOWN] = reverse(lines[len(lines)-1])
 	t.borders[LEFT] = reverse(string(left))
 
-	for _, line := range lines[2:len(lines)-1] {
+	for _, line := range lines[2 : len(lines)-1] {
 		t.img = append(t.img, line[1:len(line)-1])
 	}
 
@@ -57,8 +58,8 @@ func reverse(s string) string {
 }
 
 type Tile struct {
-	id string
-	img []string
+	id      string
+	img     []string
 	borders [4]string
 }
 
@@ -67,7 +68,7 @@ type TileMap map[string]Tile
 func rotate(t1 Tile) Tile {
 	n := len(t1.img)
 	t2 := Tile{
-		id: t1.id,
+		id:  t1.id,
 		img: make([]string, n),
 	}
 
@@ -89,7 +90,7 @@ func rotate(t1 Tile) Tile {
 func flip(t1 Tile) Tile {
 	n := len(t1.img)
 	t2 := Tile{
-		id: t1.id,
+		id:  t1.id,
 		img: make([]string, n),
 	}
 
@@ -136,7 +137,7 @@ func (g *Grid) set(x, y int, t Tile) {
 }
 
 func (g *Grid) cornerIndexes() (int, int, int, int) {
-	minX := 1<<63-1
+	minX := 1<<63 - 1
 	maxX := -minX
 	maxY := maxX
 	minY := minX
@@ -227,7 +228,7 @@ func (g *Grid) buildImage(tileWidth int) []string {
 
 func hasMonster(img []string, x, y, w int) bool {
 	for i, re := range monsterRegexp {
-		if !re.MatchString(img[y+i][x:x+w]) {
+		if !re.MatchString(img[y+i][x : x+w]) {
 			return false
 		}
 	}
@@ -241,7 +242,7 @@ func countMonsters(img []string) int {
 		for x := 0; x < len(img[0])-w; x++ {
 			if hasMonster(img, x, y, w) {
 				n++
-				x += w-1
+				x += w - 1
 			}
 		}
 	}
@@ -252,7 +253,7 @@ func countRoughness(img []string) int {
 	if numMonsters := countMonsters(img); numMonsters > 0 {
 		numAll := strings.Count(strings.Join(img, ""), "#")
 		numMonster := strings.Count(strings.Join(monsterPattern[:], ""), "#")
-		return numAll - numMonsters * numMonster
+		return numAll - numMonsters*numMonster
 	}
 	return 0
 }

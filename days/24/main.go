@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/matiaslindgren/AoC2020/util"
 	"regexp"
 	"strings"
-	"github.com/matiaslindgren/AoC2020/util"
 )
 
-var directions = []string{"e","se","sw","w","nw","ne"}
+var directions = []string{"e", "se", "sw", "w", "nw", "ne"}
 
 // Axial coordinates, see
 // https://www.redblobgames.com/grids/hexagons/#map-storage
